@@ -1,0 +1,128 @@
+body{
+	background: skyblue;
+	padding-top:0;
+	margin-top: 0;
+}
+#comments{
+	margin-top: 10px;
+	background:blue;
+
+	
+}
+
+#header{
+	background:skyblue;
+	width:100%;
+	height:100px;
+	box-shadow: 0px 2px 4px gray;
+	
+	}
+#navbar{
+	background: #333;
+	width: 100%;
+	height: 60px;
+	box-shadow: 0px 2px 4px gray;
+	
+	
+}
+#content{
+	width: 75.40%;
+	background: green;
+	float:left;
+	
+		}
+#formation{
+	width: 75.40%;
+	float:left;
+			
+		}
+#sidebar{
+	width: 24.60%;
+	background: gray;
+	float:right;
+	
+	
+}
+
+#content a:link{
+	font-size:24px;
+	font-family: comic sans MS;
+	
+	
+}
+#content h2{
+	
+	padding:5px;
+	color:brown;
+}
+
+#content p{
+	
+	padding:5px;
+}
+#footer{
+	width:100%;
+	height: 60px;
+	background:brown;
+	clear: both;
+}
+#navbarli>li{
+	
+	list-style: none;
+	float: left;
+	padding: 15px;
+}
+li#list>a{
+	
+	display: block;
+	color: white;
+	text-decoration: none;
+	font-size: 18px;
+	font-family: cursive;
+	text-align:center;
+}
+
+li#sm>a{
+	display: block;
+	text-decoration: none;
+	
+}
+li#list>a:hover{
+	background: green;
+	color: black;
+	margin: 1px;
+	font-size: 19px;
+}
+li#list>a:focus{
+	background: green;
+	color: black;
+	margin: 1px;
+	font-size: 19px;
+	
+}
+
+li#list>a:link{
+	color: white;
+	text-decoration: none;
+}
+#logo{
+	float: left;
+	
+}
+
+#searchbox{
+	text-align:center;
+	margin:10px;
+}
+
+#searchbox input[type="text"]{
+	
+	height: 20px;
+	width: 120px;
+	border: none;
+	
+}
+#images{
+	float:left;
+	
+}

@@ -1,0 +1,131 @@
+body{
+	
+	background:#458B74;
+	padding:0;
+	margin:0;
+}
+#loginbody{
+	background:#F8F8FF;
+	padding:0;
+	margin:0;
+}
+
+#header{
+	color:blue;
+	width:100%;
+	background: #458B74;
+	height: 100px;
+	border-bottom:5px solid #7FFF00;
+}
+#header img{
+	margin: -25px 0px 0px 20px;
+	
+}
+#sidebar{
+	
+	width:200px;
+	height: 2000px;
+	float:left;
+	background:#458B74;
+	border-right: 5px solid #7FFF00;
+}
+#hlinks{
+	text-decoration: none;
+}
+
+#header h1{
+	
+	color : black;
+	font-size:3em;
+	font-family: comic sans MS;
+	text-align: center;
+	padding-top:15;
+}
+#sidebar h2{
+	text-align: center;
+	font-size: 2em;
+}
+#welcome{
+	text-align: center;
+	color: white;
+	height: 200px;
+	font-size: 25px;
+	font-family: sans-serif;
+}
+#loginmaindiv{
+	width: 600px;
+	height: 350px;
+	margin: 100px 0px 0px 400px;
+	background:#F8F8FF;
+	padding:0px;
+	box-shadow: 10px 10px 10px 10px rgba(0,0,0,.5);
+
+}
+#loginmaindiv h1{
+	font-family: monospace;
+	font-size: 35px;
+	padding-top: 10px;
+	padding-bottom: 20px;
+}
+#loginmaindiv label{
+	
+	padding-left: 200px;
+	font-family: sans-serif;
+	font-size: 20px;
+	margin-bottom: 10px;
+}
+
+#loginmaindiv input[type="text"],
+#loginmaindiv input[type="password"]{
+	
+	height: 35px;
+	width: 200px;
+	font-family: sans-serif;
+	font-size: 15px;
+	margin-bottom:20px;
+	margin-left:200px;
+	border:none;
+	border-bottom: 1px solid black;	
+}
+#loginmaindiv input[type="text"]:hover,
+#loginmaindiv input[type="password"]:hover{
+	border-bottom:3px solid black;
+}
+
+#loginmaindiv input[type="submit"]{
+	
+	margin-top: 20px;
+	margin-left: 240px;
+	height: 40px;
+	width: 120px;
+	background:#228B22;
+	font-family: sans-serif;
+	font-size: 18px;
+	font-weight:bold;
+	border: none;
+}
+#loginmaindiv input[type="submit"]:hover{
+	background:#006400;
+	cursor:pointer;
+}
+img.loginlogo{
+	float:left;
+	padding: 10px 0px 0px 10px;
+}
+#comments_content p{
+	
+	font-family: sans-serif;
+	font-size: 22px;
+	padding-left:220px;
+	margin-right: 20px;
+	padding-top: 0px;
+}
+#comments_content a{
+	text-decoration: none;
+	margin-right: 20px;
+}
+#comments_content a:hover{
+	font-size: 23px;
+	font-style:comic;
+	color: white;
+}
