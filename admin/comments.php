@@ -39,24 +39,19 @@ else{
  <?php
 
 				
-				$dbhost ='127.0.0.1';
-				$dbuser= 'root';
-				$dbpass='';
-				$dbname='kkcygwebdata';
-				$conn= mysqli_connect($dbhost,$dbuser,$dbpass,$dbname) or die('Error in connection');
-				
+				include('../include/dbconnect.php');
 				$select_comments="select * from comments order by 1 DESC";
 				
 				$run_query=mysqli_query($conn,$select_comments );
 				
 				while ($row=mysqli_fetch_array($run_query)){
 				
-				$comment_id=$row['comment_id'];
-				$comment_date= $row['comment_date'];
-				$commenter_name=$row['name'];
+				$comment_id=$row['c_id'];
+				$comment_date= $row['c_date'];
+				$commenter_name=$row['nm'];
 				$commenter_phone=$row['phone'];
 				$commenter_email=$row['email'];
-				$comment_comment=$row['comment'];
+				$comment_comment=$row['comments'];
 				
 				?>
 				

@@ -41,23 +41,20 @@
 		<h2 align="center">Recent Posts</h2>
 <?php
 
-				$dbhost ='127.0.0.1';
-				$dbuser= 'root';
-				$dbpass='';
-				$dbname='kkcygwebdata';
 				
-				require_once('/dbconnect.php');
-				$conn= mysqli_connect($dbhost,$dbuser,$dbpass,$dbname) or die('Error in connection');
+				require_once('dbconnect.php');
 				
+				$conn = mysqli_connect(host,user,pass,name) or 
+						die ('Error in connection '.mysqli_connect_error());
 				$query ="SELECT * FROM posts order by 1 DESC LIMIT 0,5";
 				 
 				$run_query1 =mysqli_query($conn, $query) or die("Error: ".mysqli_error($conn));
 				
 				while($row=mysqli_fetch_array($run_query1)){
 					
-					$post_id=$row['post_id'];
-					$title=$row['post_title'];
-					$image=$row['post_image'];
+					$post_id=$row['p_id'];
+					$title=$row['p_ttl'];
+					$image=$row['p_img'];
 					
 				 
 ?>

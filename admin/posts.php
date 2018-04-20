@@ -4,7 +4,7 @@
 	</head>
 <body>
 
-	<form method="POST" action='#' 
+	<form method="POST" action=# 
 	enctype="multipart/form-data">
 	
 	<table width="600" align="center" border="2" >
@@ -68,17 +68,12 @@ if(isset($_POST['publish'])){
 			
 			else{
 				
-				$dbhost ='127.0.0.1';
-				$dbuser= 'root';
-				$dbpass='';
-				$dbname='kkcygwebdata';
-				$conn= mysqli_connect($dbhost,$dbuser,$dbpass,$dbname) or die('Error in connection');
+				include("../include/dbconnect.php");
 				
 				move_uploaded_file($image_tmp,"../images/$post_image");
 				
-				$insert_query="insert into posts(post_title,
-				post_date,name,email_phoneno,post_content,post_image)
-				values('$post_title','$post_date','$post_name','$post_contact_info','$post_content','$post_image')";
+				$insert_query="insert into posts(p_ttl,p_date,nm,contacts,p_content,p_img)
+							values('$post_title','$post_date','$post_name','$post_contact_info','$post_content','$post_image')";
 				
 				
 				if(mysqli_query($conn, $insert_query)){

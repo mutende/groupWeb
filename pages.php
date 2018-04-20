@@ -26,34 +26,27 @@
 	
 <?php
 
-$dbhost ='127.0.0.1';
-				$dbuser= 'root';
-				$dbpass='';
-				$dbname='kkcygwebdata';
-				$conn= mysqli_connect($dbhost,$dbuser,$dbpass,$dbname) or die('Error in connection');
-				
-
-$select_post ="select * from posts";
-
-
  if(isset ($_GET ['id'])){
+
+	require_once('include/dbconnect.php');
 	 
 	 $page_id = $_GET['id'];
 	 
-	 $select_query ="select * from posts where post_id ='$page_id'";
+	 $select_query ="select * from posts where p_id ='$page_id'";
 
 $run_query = mysqli_query($conn, $select_query);
 
 while($row=mysqli_fetch_array($run_query)){
 	
 	
-	$post_id = $row['post_id'];
-	$post_title = $row['post_title'];
-	$post_date = $row['post_date'];
-	$post_name = $row['name'];
-	$post_conactinfo = $row['email_phoneno'];
-	$post_content = ($row['post_content']);
-	$post_image = $row['post_image'];
+	$post_id = $row['p_id'];
+	$post_title = $row['p_ttl'];
+	$post_date = $row['p_date'];
+	$post_name = $row['nm'];
+	$post_conactinfo = $row['contacts'];
+	$post_content = ($row['p_content']);
+	$post_image = $row['p_img'];
+
 ?>
 
 <h2>

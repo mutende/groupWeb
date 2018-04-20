@@ -29,13 +29,11 @@ kkcy4changegeeks
 		<input type="submit" name="submit" value="Send" colspan="6"/><br/>
 		
 		<?php 
-				$dbhost ='127.0.0.1';
-				$dbuser= 'root';
-				$dbpass='';
-				$dbname='kkcygwebdata';
-				$conn= mysqli_connect($dbhost,$dbuser,$dbpass,$dbname) or die('Error in connection');
+				
 		
 			if(isset($_POST['submit'])){
+
+				include('include/dbconnect.php');
 	
 				$comment_date= date('y/m/d');
 				$commenter_name=$_POST['name'];
@@ -43,20 +41,16 @@ kkcy4changegeeks
 				$commenter_email=$_POST['email'];
 				$comment_comment=$_POST['comment'];
 				
-				if($commenter_name=='' or  $commenter_email=='' or $comment_comment==''){
+				if($commenter_name==''  or $comment_comment==''){
 					
 					echo "<script>alert('Either name, email,phone no or comment field is empty')</script>";
 					echo "<script>window.open('contactus.php','_script')</script>";
 				}
 				else{
 					
-					$dbhost ='127.0.0.1';
-					$dbuser= 'root';
-					$dbpass='';
-					$dbname='kkcygwebdata';
-					$conn= mysqli_connect($dbhost,$dbuser,$dbpass,$dbname) or die('Error in connection');
+				include('include/dbconnect.php');
 					
-					$insert_query="insert into comments (comment_date,name,phone,email,comment) VALUES ('$comment_date','$commenter_name','$commenter_phoneno','$commenter_email','$comment_comment')";
+					$insert_query="insert into comments (c_date,nm,phone,email,comments) VALUES ('$comment_date','$commenter_name','$commenter_phoneno','$commenter_email','$comment_comment')";
 				
 				if(mysqli_query($conn,$insert_query)){
 						

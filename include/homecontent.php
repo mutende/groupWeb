@@ -29,7 +29,7 @@
 		<?php
 
 					
-		require_once('/dbconnect.php');
+		require_once('dbconnect.php');
 		$select_random_post = " select * from posts order by  rand() LIMIT 0,4";
 
 		$run_post = mysqli_query($conn, $select_random_post);
@@ -37,16 +37,16 @@
 		while($row=mysqli_fetch_array($run_post)){
 
 
-		$post_id = $row['post_id'];
-		$post_title = $row['post_title'];
-		$post_date = $row['post_date'];
-		$post_name = $row['name'];
-		$post_conactinfo = $row['email_phoneno'];
-		$post_content = substr($row['post_content'],0,200);
-		$post_image = $row['post_image'];
+			$post_id = $row['p_id'];
+			$post_date = $row['p_date'];
+			$post_auther = $row['nm'];
+			$post_title = $row['p_ttl'];
+			$post_image = $row['p_img'];
+			$post_content = substr($row['p_content'],0,200);
+			$post_auther_contacts = $row['contacts'];
 
 
-		mysqli_close($conn);
+	
 		?>
 
 		<h2>
@@ -63,10 +63,10 @@
 		<center> <img src="images/<?php echo $post_image; ?>"width="150" height="200"/></center>
 		<p align="justify"> <?php echo $post_content?>
 		<p align="right"> <a href="pages.php?id=<?php echo $post_id;?>"> Read More </a></P>
-		<p align="left"> Published by: <?php echo $post_name ?></p>
+		<p align="left"> Published by: <?php echo $post_auther ?></p>
 
 	
-		<?php } ?>
+		<?php } mysqli_close($conn) ;?>
 				
 		</div>
 		</body>

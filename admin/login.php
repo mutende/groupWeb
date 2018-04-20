@@ -39,21 +39,12 @@ session_start();
 </html>
 
 <?php 
-				
-				require_once('../include/dbconnect.php');
-
-				$conn= mysqli_connect($dbhost,$dbuser,$dbpass,$dbname) or die('Error in connection');
-
-
 				if(isset($_POST['login'])){
-					
+					require_once('../include/dbconnect.php');
 					
 					$user_name= mysqli_real_escape_string($conn,$_POST['user_name']);
 					$user_pass=mysqli_real_escape_string($conn,$_POST['user_pass']);
-					
-					$encrpt = md5($user_pass);
-					
-					$admin_query ="select * from admin_login where user_name='$user_name' AND user_pass='$user_pass'";
+					$admin_query ="select * from admin where usrnm='$user_name' AND pass='$user_pass'";
 					
 					$run = mysqli_query($conn, $admin_query);
 					

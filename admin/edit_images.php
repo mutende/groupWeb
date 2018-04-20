@@ -49,12 +49,9 @@ else{
 	</tr>
 	
 	<?php 
-				$dbhost ='127.0.0.1';
-				$dbuser= 'root';
-				$dbpass='';
-				$dbname='kkcygwebdata';
-				$conn= mysqli_connect($dbhost,$dbuser,$dbpass,$dbname) or die('Error in connection');
-				
+
+	
+			include("../include/dbconnect.php");	
 	
 		$query="select * from images";
 		$run= mysqli_query($conn, $query) or die("Error".mysqli_error($conn));

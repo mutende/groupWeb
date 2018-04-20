@@ -47,6 +47,7 @@ table{
 		<th> Post No </th>
 		<th> Post Date </th>
 		<th> Post Auther </th>
+		<th> Auther contacts </th>
 		<th> Post Title </th>
 		<th> Post Image </th>
 		<th> Post content </th>
@@ -55,25 +56,20 @@ table{
 	</tr>
 	
 	<?php 
-		
-				$dbhost ='127.0.0.1';
-				$dbuser= 'root';
-				$dbpass='';
-				$dbname='kkcygwebdata';
-				$conn= mysqli_connect($dbhost,$dbuser,$dbpass,$dbname) or die('Error in connection');
-				
-	
+						
+		include("../include/dbconnect.php");
 		$query="select * from posts";
 		$run= mysqli_query($conn, $query) or die("Error".mysqli_error($conn));
 		
 		while($row=mysqli_fetch_array($run)){
 			
-			$post_id = $row['post_id'];
-			$post_date = $row['post_date'];
-			$post_auther = $row['name'];
-			$post_title = $row['post_title'];
-			$post_image = $row['post_image'];
-			$post_content = substr($row['post_content'],0,100);
+			$post_id = $row['p_id'];
+			$post_date = $row['p_date'];
+			$post_auther = $row['nm'];
+			$post_title = $row['p_ttl'];
+			$post_image = $row['p_img'];
+			$post_content = substr($row['p_content'],0,100);
+			$post_auther_contacts = $row['contacts'];
 		
 	?>
 	
@@ -81,6 +77,7 @@ table{
 		<td><?php echo $post_id; ?></td>
 		<td><?php echo $post_date; ?></td>
 		<td><?php echo $post_auther; ?></td>
+		<td><?php echo $post_auther_contacts; ?></td>
 		<td><?php echo $post_title; ?></td>
 		<td><img src="../images/<?php echo $post_image; ?>" width="80" height="80"></td>
 		<td><?php echo $post_content; ?></td>

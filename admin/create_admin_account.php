@@ -47,8 +47,10 @@
 		$date_account_created=date('y/m/d');
 		$password=$_POST['password'];
 		$confirm_password=$_POST['confirm_password'];
+
+		//$hashed_pass=password_hash($password, PASSWORD_DEFAULT,array('cost' => 12));
 		
-		
+		//$hashed_confirm_pass =password_hash($confirm_password,PASSWORD_DEFAULT,array('cost' => 12));
 		
 		if($username=='' or $password=='' or $confirm_password==''){
 			
@@ -59,44 +61,30 @@
 		
 				if( $password ==  $confirm_password){
 				
-							
-				$dbhost ='127.0.0.1';
-				$dbuser= 'root';
-				$dbpass='';
-				$dbname='kkcygwebdata';
-				$conn= mysqli_connect($dbhost,$dbuser,$dbpass,$dbname) or die('Error in connection');
+					include('../include/dbconnect.php');
 				
-				
-				$insert_query="insert into super_account(username,date_account_created,password,confirm_password) VALUES ('$username',
+				$insert_query="insert into admin(usrnm,dt_accnt_crtd,pass,c_pass) VALUES ('$username',
 				'$date_account_created','$password','$confirm_password')";
 				
 				if(mysqli_query($conn,$insert_query)){
-					
-					$login_query= "insert into super_admin_login (user_name,user_pass) values('$username','$password')";
-					
-					if(mysqli_query($conn,$login_query)){
-						
+
 						echo "<script>alert('account created')</script>";
-						echo "<script>window.open('index.php','_self')</script>";
-						
-					}
-					else{
-						die("Error 1:".mysqli_error($conn));
-					}
+						echo "<script>window.open('index.php','_self')</script>";	
+					
 				}
 				
 				else{
 					
-					die("Error 2:".mysqli_error($conn));
+					die("Error :".mysqli_error($conn));
 				}
-		}else{
+		}else if($password !=  $confirm_password){
 			
 			echo "<script>alert('passwords do not match')</script>";
 			
+		}else{
+
+			echo "<script>alert('User name Already exist, use another User name')</script>";
 		}
 }
-
-
-
 
 ?>

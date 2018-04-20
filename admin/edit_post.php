@@ -30,30 +30,28 @@ else{
 <?php
 
 				
-				$dbhost ='127.0.0.1';
-				$dbuser= 'root';
-				$dbpass='';
-				$dbname='kkcygwebdata';
-				$conn= mysqli_connect($dbhost,$dbuser,$dbpass,$dbname) or die('Error in connection');
+
 
 
 if(isset($_GET['edit'])){
+
+	include("../include/dbconnect.php");
 	
 	$edit_id=$_GET['edit'];
 	
-	$edit_query="select *from posts where post_id='$edit_id'";
+	$edit_query="select *from posts where p_id='$edit_id'";
 	
 	$run_edit =mysqli_query($conn, $edit_query);
 	
 	while($edit_row =mysqli_fetch_array($run_edit)){
 		
 		
-	$post_id = $edit_row['post_id'];
-	$post_title = $edit_row['post_title'];
-	$post_author = $edit_row['name'];
-	$post_contact_info=$edit_row['email_phoneno'];
-	$post_image = $edit_row['post_image'];
-	$post_content = $edit_row['post_content'];
+	$post_id = $edit_row['p_id'];
+	$post_title = $edit_row['p_ttl'];
+	$post_author = $edit_row['nm'];
+	$post_contact_info=$edit_row['contacts'];
+	$post_image = $edit_row['p_img'];
+	$post_content = $edit_row['p_content'];
 
 
 ?>
@@ -130,7 +128,7 @@ if(isset($_POST['update'])){
 				
 				move_uploaded_file($image_tmp,"../images/$post_image1");
 				
-				$update_query="update posts set post_title='$post_title1', post_date='$post_date1',name='$post_name1',email_phoneno='$post_contact_info1',post_content='$post_content1',post_image='$post_image1' where post_id='$update_id'";
+				$update_query="update posts set p_ttl='$post_title1', p_date='$post_date1',nm='$post_name1',contacts='$post_contact_info1',p_content='$post_content1',p_img='$post_image1' where p_id='$update_id'";
 				if(mysqli_query($conn,$update_query)){
 					
 					echo "<script>alert('Post Updated')</script>";
@@ -143,6 +141,8 @@ if(isset($_POST['update'])){
 				}
 			}
 }	
+
+mysqli_close($conn)
 ?>
 
 <?php } ?>
